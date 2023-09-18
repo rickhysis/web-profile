@@ -22,7 +22,7 @@ class ProfilePage extends ConsumerWidget {
             Image.asset(
               'lib/assets/images/profile_bw.jpg',
               //width: 500,
-              height: isResponsive ? 300 : null,
+              height: isResponsive ? 450 : null,
               fit: isResponsive ? BoxFit.cover : BoxFit.fill,
               alignment: Alignment.topLeft,
             ),
@@ -77,7 +77,7 @@ class ProfilePage extends ConsumerWidget {
                       icon: Icon(
                         SimpleIcons.github,
                         color: textColor,
-                        size: isResponsive ? 16 : 30,
+                        size: isResponsive ? 22 : 30,
                       ),
                     );
                   },
@@ -89,7 +89,7 @@ class ProfilePage extends ConsumerWidget {
                     return TextButton.icon(
                       onPressed: openLink,
                       label: const Text(''),
-                      icon: Icon(SimpleIcons.linkedin, color: textColor, size: isResponsive ? 16 : 30),
+                      icon: Icon(SimpleIcons.linkedin, color: textColor, size: isResponsive ? 22 : 30),
                     );
                   },
                 ),
@@ -100,7 +100,7 @@ class ProfilePage extends ConsumerWidget {
                     return TextButton.icon(
                       onPressed: openLink,
                       label: const Text(''),
-                      icon: Icon(SimpleIcons.medium, color: textColor, size: isResponsive ? 16 : 30,),
+                      icon: Icon(SimpleIcons.medium, color: textColor, size: isResponsive ? 22 : 30,),
                     );
                   },
                 )

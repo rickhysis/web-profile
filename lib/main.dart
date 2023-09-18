@@ -20,19 +20,25 @@ class MyApp extends ConsumerWidget {
     final darkMode = ref.watch(themeStateNotifier);
     Color textColor = darkMode ? Colors.white : Colors.black87;
     return MaterialApp(
-      title: 'Rikhy Siswanto',
-      themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
-      scrollBehavior: const MaterialScrollBehavior().copyWith(scrollbars: true),
-      // theme: ThemeData(
-      //   primarySwatch: themeValue ? Colors.black54 : Colors.grey.shade300,
-      // ),
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          secondary: Colors.green,
+        title: 'Rikhy Siswanto',
+        themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
+        scrollBehavior:
+            const MaterialScrollBehavior().copyWith(scrollbars: true),
+        // theme: ThemeData(
+        //   primarySwatch: themeValue ? Colors.black54 : Colors.grey.shade300,
+        // ),
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            secondary: Colors.green,
+          ),
+          textTheme: TextTheme(
+              bodyMedium: TextStyle(color: textColor),
+              bodyLarge: TextStyle(color: textColor)),
         ),
-        textTheme: TextTheme(bodyMedium: TextStyle(color: textColor), bodyLarge: TextStyle(color: textColor)),
-      ),
-      home: const HomePage(),
-    );
+        home: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 500),
+              child: const HomePage(),
+        )));
   }
 }

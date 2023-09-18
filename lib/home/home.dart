@@ -25,19 +25,29 @@ class HomePage extends ConsumerWidget {
           backgroundColor: theme,
           foregroundColor: theme,
           actions: <Widget>[
-            Text('Build with flutter', style: TextStyle(color: textColor)),
-            Switch(
-              // This bool value toggles the switch.
-              value: darkMode,
-              activeColor: Colors.white,
-              inactiveThumbColor: Colors.black87,
-              onChanged: (bool value) {
-                if (darkMode) {
-                  ref.read(themeStateNotifier.notifier).setLightTheme();
-                } else {
-                  ref.read(themeStateNotifier.notifier).setDarkTheme();
-                }
-              },
+            Column(
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Text('Build with flutter',
+                      style: TextStyle(color: textColor)),
+                ),
+                Align(
+                    alignment: Alignment.bottomRight,
+                    child: Switch(
+                      // This bool value toggles the switch.
+                      value: darkMode,
+                      activeColor: Colors.white,
+                      inactiveThumbColor: Colors.black87,
+                      onChanged: (bool value) {
+                        if (darkMode) {
+                          ref.read(themeStateNotifier.notifier).setLightTheme();
+                        } else {
+                          ref.read(themeStateNotifier.notifier).setDarkTheme();
+                        }
+                      },
+                    )),
+              ],
             )
           ],
         ),
@@ -50,31 +60,12 @@ class AdaptiveContainer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (MediaQuery.of(context).size.width < 550.0) {
-      return ListView(
-        children: const [
-          ProfilePage(),
-          //Divider(),
-          ContentPage(),
-        ],
-      );
-    } else {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          Expanded(
-            child: ProfilePage(),
-          ),
-          Expanded(
-            flex: 3,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 20, 0.0, 20),
-              child: ContentPage(),
-            ),
-          ),
-        ],
-      );
-    }
+    return ListView(
+      children: const [
+        ProfilePage(),
+        //Divider(),
+        ContentPage(),
+      ],
+    );
   }
 }

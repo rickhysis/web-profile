@@ -12,57 +12,39 @@ class ContentPage extends ConsumerWidget {
     final bool darkMode = ref.watch(themeStateNotifier);
     Color textColor = darkMode ? Colors.white : Colors.black87;
 
-    if (MediaQuery.of(context).size.width < 550.0) {
-      return Column(
-        children: [
-          Chip(
-            padding: const EdgeInsets.all(10.0),
-            label: Text(passiontText,
-                textScaleFactor: 2,
-                style:
-                    TextStyle(color: textColor, fontStyle: FontStyle.italic)),
-          ),
-          const Divider(),
-          ListProfileBoxPage(
-              valueText: projectsValueText,
-              subText: projectText,
-              descriptionText: projectDescription),
-          const Divider(),
-          ListProfileBoxPage(
-              valueText: appliationsValueText,
-              subText: applicationText,
-              descriptionText: appliactionDescription),
-          const Divider(),
-          ListProfileBoxPage(
-              valueText: technicalValueText,
-              subText: technicalText,
-              descriptionText: technicalDescription),
-          const Divider(),
-          ListProfileBoxPage(
-              valueText: leadingValueText,
-              subText: leadingText,
-              descriptionText: leadingDescription),
-          const Divider(),
-          Text(greetingMessage,
-              textScaleFactor: 1,
+    return Column(
+      children: [
+        Chip(
+          padding: const EdgeInsets.all(10.0),
+          label: Text(passiontText,
+              textScaleFactor: 2,
               style: TextStyle(color: textColor, fontStyle: FontStyle.italic)),
-        ],
-      );
-    } else {
-      return ListView(
-        children: [
-          Chip(
-            label: Text(passiontText,
-                textScaleFactor: 3,
-                style:
-                    TextStyle(color: textColor, fontStyle: FontStyle.italic)),
-          ),
-          const ProfileBoxPage(),
-          Text(greetingMessage,
-              textScaleFactor: 1.5,
-              style: TextStyle(color: textColor, fontStyle: FontStyle.italic)),
-        ],
-      );
-    }
+        ),
+        const Divider(),
+        ListProfileBoxPage(
+            valueText: projectsValueText,
+            subText: projectText,
+            descriptionText: projectDescription),
+        const Divider(),
+        ListProfileBoxPage(
+            valueText: appliationsValueText,
+            subText: applicationText,
+            descriptionText: appliactionDescription),
+        const Divider(),
+        ListProfileBoxPage(
+            valueText: technicalValueText,
+            subText: technicalText,
+            descriptionText: technicalDescription),
+        const Divider(),
+        ListProfileBoxPage(
+            valueText: leadingValueText,
+            subText: leadingText,
+            descriptionText: leadingDescription),
+        const Divider(),
+        Text(greetingMessage,
+            textScaleFactor: 1,
+            style: TextStyle(color: textColor, fontStyle: FontStyle.italic)),
+      ],
+    );
   }
 }
